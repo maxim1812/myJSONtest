@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>P2</title>
+</head>
+<body>
+
+<a href = "p1.html">Вернуться</a>
+
+<br>
+<br>
+<p id = 'res'></p>
+
+<script>
+
+	var s = decodeURIComponent(location.search);
+	
+	function modifyString(s)
+	{
+		let flag = false;
+		let n = s.length;
+		let answer = "";
+		for(let i = 0; i < n; ++i)
+		{
+			let c = s.charAt(i);
+			
+			if(flag == true)
+				answer += c;
+			else
+			if(c == '{')
+			{
+				flag = true;
+				answer += c;
+			}
+		}
+		return answer;
+	}
+
+	s = modifyString(s);
+	
+	let myJSON = JSON.parse(s);
+	let s1 = (myJSON.name);
+	let s2 = (myJSON.age);
+	
+	console.log(s1);
+	console.log(s2);
+	
+	document.getElementById('res').innerHTML += (s1 + "<br>");
+	document.getElementById('res').innerHTML += (s2 + "<br>");
+
+</script>
+
+
+</body>
+</html>

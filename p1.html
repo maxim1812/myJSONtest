@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>P1</title>
+</head>
+<body>
+
+<input type = 'text' id = 't1'><br><br>
+<input type = 'text' id = 't2'><br><br>
+<input type = 'button' value = 'GO' onclick = 'f()'>
+
+<script>
+
+	let t1,t2;
+	
+	window.onload = function()
+	{
+		t1 = document.getElementById('t1');
+		t2 = document.getElementById('t2');
+	}
+	
+	function f()
+	{
+		let s1 = t1.value;
+		let s2 = t2.value;
+		
+		let myObj = {
+			name: "",
+			age: ""
+		}
+		
+		myObj.name =  encodeURIComponent(s1);
+		myObj.age = encodeURIComponent(s2);
+		
+		let answer = JSON.stringify(myObj);
+		window.location = "p2.html?" + answer;
+	}
+
+</script>
+
+
+</body>
+</html>
